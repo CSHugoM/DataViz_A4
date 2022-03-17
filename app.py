@@ -15,5 +15,5 @@ import os
 
 from components.icons import st_icons
 
-st_icons()
+st_icons(10, 20, 30, 40)
     
