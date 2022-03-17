@@ -23,25 +23,25 @@ def st_icons(employment_value, contraceptive_value, education_value, marriage_va
     <style>
     .numbers-font {
         font-family:"Crimson Text";
-        font-size:80px !important;
+        font-size:50px !important;
         font_weight:bold
     }
     .unit-font {
         font-family:"Crimson Text";
-        font-size:40px;
+        font-size:30px;
         font_weight:bold
     }
     </style>
     """, unsafe_allow_html=True)
 
     value_cols[0].markdown(
-        f'<p class="numbers-font">{str(employment_value)} <span class="unit-font"> % </span></p>', unsafe_allow_html=True)
+        f'<p class="numbers-font"> &ensp; {str(employment_value)}<span class="unit-font">%</span></p>', unsafe_allow_html=True)
     value_cols[1].markdown(
-        f'<p class="numbers-font">{str(education_value)} <span class="unit-font"> % </span></p>', unsafe_allow_html=True)
+        f'<p class="numbers-font"> &ensp; {str(education_value)}<span class="unit-font">%</span></p>', unsafe_allow_html=True)
     value_cols[2].markdown(
-        f'<p class="numbers-font">{str(contraceptive_value)} <span class="unit-font"> % </span></p>', unsafe_allow_html=True)
+        f'<p class="numbers-font"> &ensp; {str(contraceptive_value)}<span class="unit-font">%</span></p>', unsafe_allow_html=True)
     value_cols[3].markdown(
-        f'<p class="numbers-font">{str(marriage_value)} <span class="unit-font"> y.o </span> </p>', unsafe_allow_html=True)
+        f'<p class="numbers-font"> &ensp; {str(marriage_value)}<span class="unit-font">y.o.</span></p>', unsafe_allow_html=True)
 
 
 
