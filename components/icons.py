@@ -10,7 +10,11 @@ def st_icons():
     education_image = Image.open(os.path.join(images_path, 'mortarboard.png'))
     marriage_image = Image.open(os.path.join(images_path, 'wedding-rings.png'))
 
-    st.image([employment_image, contraceptive_image,
-             marriage_image, education_image])
+    cols = st.columns(4)
+
+    cols[0].image(employment_image)
+    cols[1].image(contraceptive_image)
+    cols[2].image(education_image)
+    cols[3].image(marriage_image)
 
 
