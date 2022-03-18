@@ -8,6 +8,6 @@ def load_data(path : str = path):
     raw_data = pd.read_csv(path, delimiter=";")
 
     agg_data = raw_data[raw_data.columns.difference(['Year'])].groupby(
-        'Country', as_index=False).agg('mean')
+        'Country').agg('mean')
 
     return raw_data, agg_data

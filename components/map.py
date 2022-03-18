@@ -3,14 +3,16 @@ import pandas as pd
 import plotly.graph_objects as go
 
 
-def st_map(data : pd.DataFrame, col : str):
+def st_map(data : pd.DataFrame):
+
+    choosen_variable = st.selectbox('', tuple(list(data.columns)))
 
     fig = go.Figure(data=go.Choropleth(
-        locations=data['Country'],  # Spatial coordinates
-        z=data[col].astype(float),  # Data to be color-coded
+        locations=data.index,  # Spatial coordinates
+        z=data[choosen_variable].astype(float),  # Data to be color-coded
         locationmode='country names',  # set of locations match entries in `locations`
         colorscale='Viridis',
-        colorbar_title=col,
+        colorbar_title=choosen_variable,
     ))
 
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0}, width=3000)

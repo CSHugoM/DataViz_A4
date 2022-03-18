@@ -9,5 +9,5 @@ st.set_page_config(layout="wide")
 
 st_icons(10, 20, 30, 40)
 
-st_map(agg_data, "Ratio of female to male labor force participation rate (%) (modeled ILO estimate)")
+st_map(agg_data)
     
