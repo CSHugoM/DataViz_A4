@@ -1,19 +1,13 @@
-"""
-# Tutorial: Building data apps with Streamlit
-Created by Natkamon Tovanich - version 2022-03-01
-"""
-
 import streamlit as st
-import pandas as pd
-import altair as alt
-from altair import datum
-from vega_datasets import data
-from streamlit_vega_lite import vega_lite_component, altair_component
-import time
-from PIL import Image
-import os
-
 from components.icons import st_icons
+from components.map import st_map
+from components.utils import load_data
+
+raw_data, agg_data = load_data()
+
+st.set_page_config(layout="wide")
 
 st_icons(10, 20, 30, 40)
+
+st_map(agg_data, "Ratio of female to male labor force participation rate (%) (modeled ILO estimate)")
     
