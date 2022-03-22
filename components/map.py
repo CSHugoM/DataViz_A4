@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
+from streamlit_plotly_events import plotly_events
+
+from components.utils import compute_mean
+from components.icons import st_icons
 
 
-def st_map(data : pd.DataFrame):
+def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_means : list):
 
     choosen_variable = st.selectbox('', tuple(list(data.columns)))
 
@@ -15,9 +19,17 @@ def st_map(data : pd.DataFrame):
         colorbar_title=choosen_variable,
     ))
 
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0}, width=3000)
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     map_container = st.container()
 
     with map_container:
-        st.plotly_chart(fig, use_container_width=True)
+        selected_countries = plotly_events(fig, click_event = False, select_event = True)
+    
+    list_index = [e['pointIndex'] for e in selected_countries]
+
+    if list_index != []:
+        st_icons(compute_mean(data, list_index, list_global_var), icons_container)
+    else :
+        st_icons(global_means, icons_container)
+

@@ -11,3 +11,17 @@ def load_data(path : str = path):
         'Country').agg('mean')
 
     return raw_data, agg_data
+
+def compute_mean(data : pd.DataFrame, list_index : list, list_var : list):
+    
+    data_temp = data[list_var].reset_index()
+
+    if list_index != None :
+        data_select_rows = data_temp.iloc[list_index]
+    else :
+        data_select_rows = data_temp
+
+    data_select_rows = data_select_rows.set_index('Country')
+    data_select_rows = data_select_rows.astype(float)
+
+    return data_select_rows.mean(axis=0).round(1).tolist()
