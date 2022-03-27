@@ -8,9 +8,28 @@ from components.icons import st_icons
 
 
 def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_means : list):
-
-    choosen_variable = st.selectbox('', tuple(list(data.columns)))
-
+    general_list = ['Adolescent fertility rate', 
+                    'Age at first marriage', 
+                    'Cause of death, by communicable diseases and materl, pretal and nutrition conditions',
+                    'Cause of death, by non-communicable diseases',
+                    'Contraceptive prevalence',
+                    'Educatiol attainment',
+                    'Female share of employment in senior and middle magement',
+                    'Fertility rate',
+                    'Ratio of female to male labor force participation rate',
+                    'Wage and salaried workers',
+                    'Wanted fertility rate',
+                    'Women making their own informed decisions regarding sexual relations, contraceptive use and reproductive health care',
+                    'Women who believe a wife is justified refusing sex with her husband if she knows he has sexually transmitted disease'
+                    ]
+    column_names = list(data.columns)
+    #choosen_variable = st.selectbox('', tuple(list(data.columns)))
+    initial_variable = st.selectbox('', tuple(general_list))
+    new_list = [s for s in column_names if initial_variable in s]
+    #if(any(substring in string for substring in substring_list)):
+        
+    choosen_variable = st.selectbox('', tuple(new_list))
+    
     fig = go.Figure(data=go.Choropleth(
         locations=data.index,  # Spatial coordinates
         z=data[choosen_variable].astype(float),  # Data to be color-coded

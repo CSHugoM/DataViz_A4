@@ -14,6 +14,8 @@ list_global_var = [
 
 # Load raw data and aggregated one
 raw_data, agg_data = load_data()
+raw_data.head()
+agg_data.head()
 
 # This command sets the page to full screen
 st.set_page_config(layout="wide")
