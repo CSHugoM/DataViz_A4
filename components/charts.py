@@ -6,6 +6,9 @@ from scipy import stats
 
 
 def st_charts(data : pd.DataFrame):
+    
+    st.markdown("##### C. Explore the statistics and correlations between two gender key indicators using this scatter plot:")
+    st.markdown("_Each mark in the graph corresponds to a different country._")
 
     cols = st.columns([1,2])
     cols[0].write("#")
