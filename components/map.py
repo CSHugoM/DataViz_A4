@@ -46,7 +46,7 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
         colorbar_title=choosen_variable,
     ))
 
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0},height=400)
 
     map_container = st.container()
 
