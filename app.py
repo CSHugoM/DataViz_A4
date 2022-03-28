@@ -20,7 +20,7 @@ st.set_page_config(layout="wide")
 
 # Test title
 st.title('Gender Differences in the World')
-st.subheader("An overview to understand the context and evolution of women's health, employment and education levels")
+st.subheader("An overview on the context and evolution of women's health, employment and education levels")
 st.text(" ")
 st.text(" ")
 st.text(" ")
