@@ -8,7 +8,7 @@ from components.charts import st_charts
 # List of global var to be shown at the top
 list_global_var = [
     "Female share of employment in senior and middle magement (%)",
-    "Educatiol attainment, at least Bachelor's or equivalent, population 25+, female (%) (cumulative)",
+    "Educational attainment, at least Bachelor's or equivalent, population 25+, female (%) (cumulative)",
     "Contraceptive prevalence, any method (% of married women ages 15-49)",
     "Age at first marriage, female"]
 
@@ -20,7 +20,7 @@ st.set_page_config(layout="wide")
 
 # Test title
 st.title('Gender Differences in the World')
-st.subheader("An overview on the context and evolution of women's health, employment and education levels")
+st.subheader("An overview on the context and evolution of women's employment, education and family health levels")
 st.text(" ")
 st.text(" ")
 st.text(" ")
