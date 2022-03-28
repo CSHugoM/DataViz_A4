@@ -11,6 +11,7 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
 
     choosen_variable = st.selectbox('', tuple(list(data.columns)))
     
+    #refresh button
     if st.button("Reset"):
         raise st.experimental_rerun()
 
