@@ -32,7 +32,7 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
         
     choosen_variable = st.selectbox('', tuple(new_list))
     
-    st.markdown("Plus, you can also click or select countries to see the **Gender Key Indicators Summary** for a specific country. To revert changes, use the **Reset** button:")
+    st.markdown("Plus, you can also click or select countries in the map to see the **Gender Key Indicators Summary** for these countries. To revert changes, use the **Reset** button:")
 
     #refresh button
     if st.button("Reset"):
