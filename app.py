@@ -31,10 +31,6 @@ global_means = compute_mean(agg_data, list_index = None, list_var = list_global_
 icons_container = st.empty()
 
 st_icons(global_means, icons_container)
-
-#refresh button
-if st.button("Reset"):
-    raise st.experimental_rerun()
     
 st_map(agg_data, list_global_var, icons_container, global_means)
 
