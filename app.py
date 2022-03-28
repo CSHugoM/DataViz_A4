@@ -26,6 +26,8 @@ st.subheader("An overview on women's employment, education and family health lev
 st.text(" ")
 st.text(" ")
 st.text(" ")
+st.markdown("##### A. Check the Gender Key Indicators Summary:")
+st.markdown("_Default values correspond to Global Yearly Means._")
 
 # We compute the global mean to be displayed at the start
 global_means = compute_mean(agg_data, list_index = None, list_var = list_global_var)
