@@ -42,7 +42,7 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
         locations=data.index,  # Spatial coordinates
         z=data[choosen_variable].astype(float),  # Data to be color-coded
         locationmode='country names',  # set of locations match entries in `locations`
-        colorscale='Viridis',
+        colorscale='Plasma',
         colorbar_title=choosen_variable,
     ))
 
