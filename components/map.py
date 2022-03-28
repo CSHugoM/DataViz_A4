@@ -13,7 +13,7 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
                     'Cause of death, by communicable diseases and materl, pretal and nutrition conditions',
                     'Cause of death, by non-communicable diseases',
                     'Contraceptive prevalence',
-                    'Educatiol attainment',
+                    'Educational attainment',
                     'Female share of employment in senior and middle magement',
                     'Fertility rate',
                     'Ratio of female to male labor force participation rate',
@@ -23,16 +23,12 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
                     'Women who believe a wife is justified refusing sex with her husband if she knows he has sexually transmitted disease'
                     ]
     column_names = list(data.columns)
-    #choosen_variable = st.selectbox('', tuple(list(data.columns)))
     initial_variable = st.selectbox('', tuple(general_list))
     new_list = [s for s in column_names if initial_variable in s]
     #if(any(substring in string for substring in substring_list)):
         
     choosen_variable = st.selectbox('', tuple(new_list))
-    
-
-    choosen_variable = st.selectbox('', tuple(list(data.columns)))
-    
+        
     #refresh button
     if st.button("Reset"):
         raise st.experimental_rerun()
