@@ -30,6 +30,13 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
         
     choosen_variable = st.selectbox('', tuple(new_list))
     
+
+    choosen_variable = st.selectbox('', tuple(list(data.columns)))
+    
+    #refresh button
+    if st.button("Reset"):
+        raise st.experimental_rerun()
+
     fig = go.Figure(data=go.Choropleth(
         locations=data.index,  # Spatial coordinates
         z=data[choosen_variable].astype(float),  # Data to be color-coded
@@ -43,7 +50,7 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
     map_container = st.container()
 
     with map_container:
-        selected_countries = plotly_events(fig, click_event = False, select_event = True)
+        selected_countries = plotly_events(fig, click_event = True, select_event = True)
     
     list_index = [e['pointIndex'] for e in selected_countries]
 

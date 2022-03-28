@@ -31,12 +31,12 @@ def st_icons(list_numbers : list, container):
         st.markdown("""
         <style>
         .numbers-font {
-            font-family:"Crimson Text";
+            font-family:"sans serif";
             font-size:50px !important;
             font_weight:bold
         }
         .unit-font {
-            font-family:"Crimson Text";
+            font-family:"sans serif";
             font-size:30px;
             font_weight:bold
         }
@@ -51,6 +51,13 @@ def st_icons(list_numbers : list, container):
             f'<p class="numbers-font"> {str(list_numbers[2])}<span class="unit-font">%</span></p>', unsafe_allow_html=True)
         value_cols[5].markdown(
             f'<p class="numbers-font"> {str(list_numbers[3])}<span class="unit-font">y.o.</span></p>', unsafe_allow_html=True)
+        
+        legend_cols = st.columns(8)
+        
+        legend_cols[2].markdown("_Female share of employment in senior and middle magement (%)_")
+        legend_cols[3].markdown("_Educational attainment, at least Bachelor's or equiv., female (%)_")
+        legend_cols[4].markdown("_Contraceptive prevalence, any method (% of married women ages 15-49)_")
+        legend_cols[5].markdown("_Age at first marriage, female_")
 
 
 
