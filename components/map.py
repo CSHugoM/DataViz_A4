@@ -10,6 +10,9 @@ from components.icons import st_icons
 def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_means : list):
 
     choosen_variable = st.selectbox('', tuple(list(data.columns)))
+    
+    if st.button("Reset"):
+        raise st.experimental_rerun()
 
     fig = go.Figure(data=go.Choropleth(
         locations=data.index,  # Spatial coordinates
