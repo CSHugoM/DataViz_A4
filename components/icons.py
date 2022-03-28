@@ -31,12 +31,12 @@ def st_icons(list_numbers : list, container):
         st.markdown("""
         <style>
         .numbers-font {
-            font-family:"Crimson Text";
+            font-family:"sans serif";
             font-size:50px !important;
             font_weight:bold
         }
         .unit-font {
-            font-family:"Crimson Text";
+            font-family:"sans serif";
             font-size:30px;
             font_weight:bold
         }
