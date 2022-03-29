@@ -2,8 +2,6 @@ import plotly.express as px
 import pandas as pd
 import streamlit as st
 import scipy
-from scipy import stats
-
 
 def st_charts(data : pd.DataFrame):
     
@@ -27,7 +25,29 @@ def st_charts(data : pd.DataFrame):
         r =  scipy.stats.pearsonr(df[choosen_variable_1],df[choosen_variable_2])
     r_report = "Correlation: " + str(round(r[0],2))
     cols[0].markdown(r_report)
-    chart = px.scatter(data,x=choosen_variable_1, y = choosen_variable_2, trendline="ols")
+    
+    name1 = ""
+    c = 1
+    for i, letter in enumerate(choosen_variable_1):
+        if letter == " ":
+           c += 1
+        if c % 10 == 0:
+            name1 += "<br>"
+            c =+ 1
+        name1 += letter
+        
+    name2 = ""
+    c = 1
+    for i, letter in enumerate(choosen_variable_2):
+        if letter == " ":
+           c += 1
+        if c % 10 == 0:
+            name2 += "<br>"
+            c =+ 1
+        name2 += letter
+    
+    chart = px.scatter(data,x=choosen_variable_1, y = choosen_variable_2, trendline="ols",
+                       labels={choosen_variable_1:name1,choosen_variable_2:name2})
     chart.update_traces(textposition='top center')
     chart.update_layout(height = 800, width = 800)
 
