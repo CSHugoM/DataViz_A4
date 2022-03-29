@@ -2,7 +2,7 @@ import streamlit as st
 from components.icons import st_icons
 from components.map import st_map
 from components.utils import load_data, compute_mean
-from components.charts import st_charts
+from components.charts import st_charts, st_charts_line
 
 
 # List of global var to be shown at the top
@@ -40,4 +40,5 @@ st_map(agg_data, list_global_var, icons_container, global_means)
 
 st_charts(agg_data)
 
+st_charts_line(raw_data)
 
