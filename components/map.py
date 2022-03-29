@@ -10,11 +10,11 @@ from components.icons import st_icons
 def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_means : list):
     general_list = ['Adolescent fertility rate', 
                     'Age at first marriage', 
-                    'Cause of death, by communicable diseases and materl, pretal and nutrition conditions',
+                    'Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions',
                     'Cause of death, by non-communicable diseases',
                     'Contraceptive prevalence',
                     'Educational attainment',
-                    'Female share of employment in senior and middle magement',
+                    'Female share of employment in senior and middle management',
                     'Fertility rate',
                     'Ratio of female to male labor force participation rate',
                     'Wage and salaried workers',
@@ -25,10 +25,25 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
     column_names = list(data.columns)
     initial_variable = st.selectbox('', tuple(general_list))
     new_list = [s for s in column_names if initial_variable in s]
+    remove_from_list = initial_variable + ', '
+    print(new_list)
+    
+    if(initial_variable == 'Adolescent fertility rate' 
+       or initial_variable == 'Female share of employment in senior and middle management'
+       or initial_variable == 'Fertility rate'
+       or initial_variable == 'Ratio of female to male labor force participation rate'
+       or initial_variable == 'Wanted fertility rate'
+       or initial_variable == 'Women making their own informed decisions regarding sexual relations, contraceptive use and reproductive health care'
+       ):         
+        choosen_variable = new_list[0]
+    else:
+        print(initial_variable)
+        new_list = list(map(lambda x: x.replace(remove_from_list,''),new_list))
+        choosen_variable = st.selectbox('', tuple(new_list))
+        choosen_variable = remove_from_list + choosen_variable
+    
+        
     #if(any(substring in string for substring in substring_list)):
-        
-    choosen_variable = st.selectbox('', tuple(new_list))
-        
     #refresh button
     if st.button("Reset"):
         raise st.experimental_rerun()

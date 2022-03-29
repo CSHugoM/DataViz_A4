@@ -7,10 +7,10 @@ from components.charts import st_charts
 
 # List of global var to be shown at the top
 list_global_var = [
-    "Female share of employment in senior and middle magement (%)",
-    "Educational attainment, at least Bachelor's or equivalent, population 25+, female (%) (cumulative)",
-    "Contraceptive prevalence, any method (% of married women ages 15-49)",
-    "Age at first marriage, female"]
+    "Female share of employment in senior and middle management (%)",
+    "Educational attainment, At least Bachelor's or equivalent, population 25+, female (%) (cumulative)",
+    "Contraceptive prevalence, Any method (% of married women ages 15-49)",
+    "Age at first marriage, Female"]
 
 # Load raw data and aggregated one
 raw_data, agg_data = load_data()
