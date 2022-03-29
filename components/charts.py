@@ -47,7 +47,7 @@ def st_charts(data : pd.DataFrame):
         name2 += letter
     
     chart = px.scatter(data,x=choosen_variable_1, y = choosen_variable_2, trendline="ols",
-                       labels={choosen_variable_1:name1,choosen_variable_2:name2})
+                       labels={choosen_variable_1:name1,choosen_variable_2:name2},trendline_color_override="red")
     chart.update_traces(textposition='top center')
     chart.update_layout(height = 800, width = 800)
 
