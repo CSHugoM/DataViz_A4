@@ -1,6 +1,7 @@
 from PIL import Image
 import streamlit as st
 import os
+import math
 
 def st_icons(list_numbers : list, container):
 
@@ -15,6 +16,21 @@ def st_icons(list_numbers : list, container):
     marriage_image = Image.open(os.path.join(images_path, 'wedding-rings.png'))
 
     # Create a container for icons
+    
+    employment_nb = str(list_numbers[0]) + "%"
+    contraceptive_nb = str(list_numbers[1]) + "%"
+    education_nb = str(list_numbers[2]) + "%"
+    marriage_nb = str(list_numbers[3]) + "y.o."
+    
+    if(math.isnan(list_numbers[0])):
+        employment_nb = "Not Available"
+    if(math.isnan(list_numbers[2])):
+        education_nb = "Not Available"
+    if(math.isnan(list_numbers[1])):
+        contraceptive_nb = "Not Available"
+    if(math.isnan(list_numbers[3])):
+        marriage_nb = "Not Available"
+        
 
 
     with container.container():
@@ -32,7 +48,7 @@ def st_icons(list_numbers : list, container):
         <style>
         .numbers-font {
             font-family:"sans serif";
-            font-size:50px !important;
+            font-size:45px !important;
             font_weight:bold
         }
         .unit-font {
@@ -44,13 +60,13 @@ def st_icons(list_numbers : list, container):
         """, unsafe_allow_html=True)
 
         value_cols[2].markdown(
-            f'<p class="numbers-font"> {str(list_numbers[0])}<span class="unit-font">%</span></p>', unsafe_allow_html=True)
+            f'<p class="numbers-font"> {employment_nb}<span class="unit-font"></span></p>', unsafe_allow_html=True)
         value_cols[3].markdown(
-            f'<p class="numbers-font"> {str(list_numbers[1])}<span class="unit-font">%</span></p>', unsafe_allow_html=True)
+            f'<p class="numbers-font"> {education_nb}<span class="unit-font"></span></p>', unsafe_allow_html=True)
         value_cols[4].markdown(
-            f'<p class="numbers-font"> {str(list_numbers[2])}<span class="unit-font">%</span></p>', unsafe_allow_html=True)
+            f'<p class="numbers-font"> {contraceptive_nb}<span class="unit-font"></span></p>', unsafe_allow_html=True)
         value_cols[5].markdown(
-            f'<p class="numbers-font"> {str(list_numbers[3])}<span class="unit-font">y.o.</span></p>', unsafe_allow_html=True)
+            f'<p class="numbers-font"> {marriage_nb}<span class="unit-font"></span></p>', unsafe_allow_html=True)
         
         legend_cols = st.columns(8)
         

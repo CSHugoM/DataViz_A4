@@ -2,6 +2,7 @@ import plotly.express as px
 import pandas as pd
 import streamlit as st
 import scipy
+from scipy import stats
 import numpy as np
 def st_charts(data : pd.DataFrame):
     
@@ -23,7 +24,7 @@ def st_charts(data : pd.DataFrame):
     if choosen_variable_1 == choosen_variable_2:
         r = (1.00,1.00)
     else:
-        r =  scipy.stats.pearsonr(df[choosen_variable_1],df[choosen_variable_2])
+        r =  stats.pearsonr(df[choosen_variable_1],df[choosen_variable_2])
     r_report = "##### Correlation: " + str(round(r[0],2))
     
     name1 = ""

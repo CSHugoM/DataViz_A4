@@ -9,7 +9,7 @@ from components.icons import st_icons
 
 def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_means : list):
     
-    st.markdown("##### B. Pick one gender key indicator from the dropdown list and visualise it for all countries using the map:")
+    st.markdown("##### B. Select a gender key indicator from the dropdown list and visualise it for all countries using the map:")
 
     general_list = ['Adolescent fertility rate', 
                     'Age at first marriage', 
@@ -29,7 +29,6 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
     initial_variable = st.selectbox('', tuple(general_list))
     new_list = [s for s in column_names if initial_variable in s]
     remove_from_list = initial_variable + ', '
-    print(new_list)
     
     if(initial_variable == 'Adolescent fertility rate' 
        or initial_variable == 'Female share of employment in senior and middle management'
@@ -40,26 +39,28 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
        ):         
         choosen_variable = new_list[0]
     else:
-        print(initial_variable)
+        st.markdown("")
+        st.markdown("Select a sub-category of the gender key chosen: ")
         new_list = list(map(lambda x: x.replace(remove_from_list,''),new_list))
         choosen_variable = st.selectbox('', tuple(new_list))
         choosen_variable = remove_from_list + choosen_variable
-    
         
     #refresh button
     if st.button("Reset"):
         raise st.experimental_rerun()
-
+    
     fig = go.Figure(data=go.Choropleth(
         locations=data.index,  # Spatial coordinates
         z=data[choosen_variable].astype(float),  # Data to be color-coded
         locationmode='country names',  # set of locations match entries in `locations`
         colorscale='Viridis',
-        colorbar_title=choosen_variable,
+        colorbar_title=initial_variable,
     ))
 
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-
+    fig.data[0].colorbar.x=-0.1
+    fig.data[0].colorbar.title.side='bottom'
+    
     map_container = st.container()
 
     with map_container:
