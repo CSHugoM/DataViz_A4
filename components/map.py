@@ -8,6 +8,9 @@ from components.icons import st_icons
 
 
 def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_means : list):
+    
+    st.markdown("##### B. Pick one gender key indicator from the dropdown list and visualise it for all countries using the map:")
+
     general_list = ['Adolescent fertility rate', 
                     'Age at first marriage', 
                     'Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions',
@@ -43,7 +46,6 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
         choosen_variable = remove_from_list + choosen_variable
     
         
-    #if(any(substring in string for substring in substring_list)):
     #refresh button
     if st.button("Reset"):
         raise st.experimental_rerun()
