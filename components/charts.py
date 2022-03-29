@@ -77,6 +77,32 @@ def st_charts(data : pd.DataFrame):
 
     cols[1].plotly_chart(chart, use_container_width=False)   
     
+def st_charts_line(data : pd.DataFrame):
+    
+    st.markdown("##### D. Visualize how a certain gender key indicator from the dropdown list evolved in the past ten years")
+    st.markdown("_To select specific countries in the visualization, click twice over a country's legend line. To remove a country from visualization, click once over this country's legend line._")
+    
+    #set-up
+    cols = st.columns([1,2])
+    cols[0].write("#")
+    cols[0].markdown("###### Variable selection:")
+    
+    variables_list = list(data.drop(['Year','Country'], axis=1).columns)
+    choosen_variable_1 = cols[0].selectbox('', tuple(variables_list), key = "1")
+    reduced_list = list(data.columns)
+    reduced_list.remove(choosen_variable_1)
+    cols[0].write("#")
+    df = data[['Year',choosen_variable_1]]
+    data2 = data.dropna(how='all', axis=0)
+    data3 = data2.dropna(how='all', axis=1)
+    
+    chart = px.line(data3,x='Year', y = choosen_variable_1, color = 'Country')
+    # chart.update_traces(textposition='top center')
+    chart.update_layout(height = 800, width = 800)
+
+    cols[1].plotly_chart(chart, use_container_width=False, click_event = True)   
+    
+    
 
     
     
