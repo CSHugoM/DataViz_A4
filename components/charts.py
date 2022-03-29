@@ -13,9 +13,11 @@ def st_charts(data : pd.DataFrame):
     cols[0].write("#")
     cols[0].markdown("**Variable 1**")
     choosen_variable_1 = cols[0].selectbox('', tuple(list(data.columns)), key = "1")
+    reduced_list = list(data.columns)
+    reduced_list.remove(choosen_variable_1)
     cols[0].write("#")
     cols[0].markdown("**Variable 2**")
-    choosen_variable_2 = cols[0].selectbox('', tuple(list(data.columns)), key = "2")
+    choosen_variable_2 = cols[0].selectbox('', tuple(reduced_list), key = "2")
     cols[0].write("#")
     df = data[[choosen_variable_1,choosen_variable_2]]
     df = df.dropna()
