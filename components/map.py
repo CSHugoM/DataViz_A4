@@ -49,12 +49,14 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
     if st.button("Reset"):
         raise st.experimental_rerun()
     
+    st.markdown(choosen_variable)
+    
     fig = go.Figure(data=go.Choropleth(
         locations=data.index,  # Spatial coordinates
         z=data[choosen_variable].astype(float),  # Data to be color-coded
         locationmode='country names',  # set of locations match entries in `locations`
         colorscale='Viridis',
-        colorbar_title=initial_variable,
+        #colorbar_title=initial_variable,
     ))
 
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
