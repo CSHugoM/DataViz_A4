@@ -9,7 +9,7 @@ from components.icons import st_icons
 
 def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_means : list):
     
-    st.markdown("##### B. Select a gender key indicator from the dropdown list and visualise it for all countries using the map:")
+    st.markdown("##### B. Select a key indicator from the dropdown list and visualise it for all countries using the map:")
 
     general_list = ['Adolescent fertility rate', 
                     'Age at first marriage', 
@@ -56,12 +56,9 @@ def st_map(data : pd.DataFrame, list_global_var : list, icons_container, global_
         z=data[choosen_variable].astype(float),  # Data to be color-coded
         locationmode='country names',  # set of locations match entries in `locations`
         colorscale='Viridis',
-        #colorbar_title=initial_variable,
     ))
 
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    fig.data[0].colorbar.x=-0.1
-    fig.data[0].colorbar.title.side='bottom'
     
     map_container = st.container()
 

@@ -6,7 +6,7 @@ from scipy import stats
 import numpy as np
 def st_charts(data : pd.DataFrame):
     
-    st.markdown("##### C. Explore the statistics and correlations between two gender key indicators using this scatter plot:")
+    st.markdown("##### C. Explore the statistics and correlations between two key indicators using this scatter plot:")
     st.markdown("_Each mark in the graph corresponds to a different country._")
 
     cols = st.columns([1,2])
@@ -79,7 +79,7 @@ def st_charts(data : pd.DataFrame):
     
 def st_charts_line(data : pd.DataFrame):
     
-    st.markdown("##### D. Visualize how a certain gender key indicator from the dropdown list evolved in the past ten years")
+    st.markdown("##### D. Visualize how a certain key indicator from the dropdown list evolved in the past ten years")
     st.markdown("_To select specific countries in the visualization, click twice over a country's legend line. To remove a country from visualization, click once over this country's legend line._")
     
     #set-up
